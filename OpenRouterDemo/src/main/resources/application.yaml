@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: OpenRouterDemo
+
+  ai:
+    openai:
+      api-key: ${OPENROUTER_API_KEY}
+      base-url: https://openrouter.ai/api
+      chat:
+        options:
+          model: arcee-ai/trinity-large-preview:free
+          temperature: 0.7
+
+server:
+  port: 8080
+
+app:
+  chat:
+    default-prompt: "Tell me a joke about Java."
+    exit-command: "exit"
+    welcome-message: "--- Querying LLM ---"
+    prompt-prefix: "You: "
+    response-prefix: "LLM: "
+    exit-message: "Bye 👋"
+
+logging:
+  level:
+    dev.ssjvirtually: INFO
+    org.springframework.ai: DEBUG
